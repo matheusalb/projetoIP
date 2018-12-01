@@ -90,6 +90,7 @@ typedef struct{
     char acao;
     Player todosJogadores[6];
     int id_acao;
+    int qntJogadores;
 }PROTOCOLO_TESTE;
 
 // Estrutura para o protocolo da mensagem  inicial do server para o client
