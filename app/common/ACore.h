@@ -59,6 +59,10 @@ typedef struct{
     int x, y;
 }Position;
 
+typedef struct{
+    int team;
+    Position posiT;
+}Traps;
 // Estrutura do jogador
 typedef struct{
     char name[LOGIN_MAX_SIZE];
@@ -72,26 +76,25 @@ typedef struct{
     int congelou;                    // Se o player congelou alguém ou não           
     Position position;               // A posição x e y do player no mapa
     int ready;                       // Verifica se o jogador apertou pra começar ou não
+    Position posicaoPrint;
 }Player;
 
 // Estrutura para o protocolo de mensagem enviadas entre server/client durante o jogo
-typedef struct{
-    int tipo; 
-    int xAnterior, yAnterior;
-    char itemAnterior;
-    char winner;
-    Player todosJogadores[6];
-    //Player jogadorSofreuAcao;
-    int qntJogadores;
-}PROTOCOLO_JOGO;
-
 typedef struct{
     char tipo;
     char acao;
     Player todosJogadores[6];
     int id_acao;
     int qntJogadores;
-}PROTOCOLO_TESTE;
+    Traps traps[20];
+    int tp;
+    char ganhou;
+}PROTOCOLO_JOGO;
+
+typedef struct{
+    char tipo;
+    Player jogador;
+}PROTOCOLO_ENVIO_CLIENT;
 
 // Estrutura para o protocolo da mensagem  inicial do server para o client
 //para poder atualizar o player do client após a inicialização dele no server
