@@ -569,6 +569,9 @@ void runGame(){
                     }
                 }
             }
+            if(jogadores[i].id == idCLient){
+                al_draw_bitmap(idPlayer,msg.todosJogadores[i].posicaoPrint.x+4,msg.todosJogadores[i].posicaoPrint.y-10,0);
+            }
         }
         printStatus(jogadoresServer[idCLient]);
         al_draw_bitmap(frontmapa,19,19,0);

@@ -166,7 +166,7 @@ void inicializaJogadores(){
                 // Recebe o nick, capacete e id das novas conexões
                 if(msg_client.tipo == INICIAL ){
                     ++qntJogadores;
-                    if(qntJogadores < MAX_CLIENTS){
+                    if(qntJogadores <= MAX_CLIENTS){
                         strcpy(players[id].name, msg_client.jogador.name);     // Salva o nick
                         players[id].helmet = msg_client.jogador.helmet;        // Salva o capacete
                         players[id].id = id;                                   // Salva o id         
